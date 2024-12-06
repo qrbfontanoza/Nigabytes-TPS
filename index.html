@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Computer Peripheral Shop</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+	
+	.featured-product img {
+    width: 250px;
+    height: 250px;
+    max-width: 250px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    object-fit: cover;
+	}
+
+    header {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    header nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    header nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 8px 15px;
+        background-color: #1a1a1a;
+        border-radius: 5px;
+    }
+
+    header nav ul li a:hover {
+        background-color: #b22222;
+    }
+
+    .main-section {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #e2e2e2;
+    }
+
+    .main-section h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .main-section p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        font-size: 20px;
+        padding: 15px 30px;
+        background-color: #1a1a1a;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .cta-button:hover {
+        background-color: #b22222;
+    }
+
+    .featured-products {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 50px 20px;
+        background-color: #fff;
+    }
+
+    .featured-product {
+        margin: 10px;
+        text-align: center;
+        border: 2px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        flex: 1 1 300px;
+        box-sizing: border-box;
+    }
+
+    .featured-product img {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .featured-product h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .featured-product p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+</style>
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-section">
+        <h1>Welcome to Nigabytes - Your One-Stop Computer Peripheral Shop!</h1>
+        <p>Explore high-quality and affordable peripherals for all your computing needs.</p>
+        <a href="products.html" class="cta-button">Shop Now</a>
+    </section>
+
+    <section class="featured-products">
+        <div class="featured-product">
+            <img src="cpu.png" alt="Gaming CPU">
+            <h3>Fast Processor</h3>
+            <a href="products.html" class="cta-button">View Product</a>
+        </div>
+        <div class="featured-product">
+            <img src="monitor.png" alt="Monitor">
+            <h3>High-Resolution Monitor</h3>
+            <a href="products.html" class="cta-button">View Product</a>
+        </div>
+        <div class="featured-product">
+            <img src="gpu.png" alt="Gaming GPU">
+            <h3>High Grade GPU</h3>
+            <a href="products.html" class="cta-button">View Product</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Nigabytes Computer Peripheral Shop. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

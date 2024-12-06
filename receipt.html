@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt - Computer Peripheral Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            color: black;
+        }
+		
+        header {
+            background-color: #8B0000FF;
+            color: white;
+            padding: 1px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 15px;
+            padding: 10px 25px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #b22222;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Receipt</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="receipt">
+        <h2>Transaction Details</h2>
+
+        <div id="items-list"></div>
+
+        <p><strong>Total Amount: $<span id="total-amount">0</span></strong></p>
+        <p><strong>Amount Paid: $<span id="payment-amount">0</span></strong></p>
+        <p><strong>Change: $<span id="change-amount">0</span></strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Computer Peripheral Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function () {
+            const paymentInfo = JSON.parse(localStorage.getItem('paymentInfo'));
+
+            if (paymentInfo && paymentInfo.cart) {
+                const itemsList = document.getElementById('items-list');
+                paymentInfo.cart.forEach(item => {
+                    const itemElement = document.createElement('p');
+                    itemElement.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                    itemsList.appendChild(itemElement);
+                });
+
+                document.getElementById('total-amount').innerText = paymentInfo.totalAmount.toFixed(2);
+                document.getElementById('payment-amount').innerText = paymentInfo.paymentAmount.toFixed(2);
+                document.getElementById('change-amount').innerText = paymentInfo.changeAmount.toFixed(2);
+
+                localStorage.removeItem('cart');
+                localStorage.removeItem('paymentInfo');
+            } else {
+                alert('No transaction details found.');
+                window.location.href = 'index.html';
+            }
+        };
+    </script>
+</body>
+
+</html>

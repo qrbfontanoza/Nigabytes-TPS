@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Computer Peripheral Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            background-color: #8B0000FF;
+            color: white;
+            padding: 1px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 15px;
+            padding: 10px 25px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #b22222;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="products.html">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="checkout">
+        <h2>Payment Information</h2>
+        <div id="total-amount">
+            <p><strong>Total Amount: $<span id="total-price">0</span></strong></p>
+        </div>
+
+        <label for="payment">Enter Payment Amount</label>
+        <input type="number" id="payment" required>
+
+        <button onclick="calculateChange()">Submit Payment</button>
+
+        <div id="change-section" style="display: none;">
+            <p><strong>Change: $<span id="change-amount">0</span></strong></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Computer Peripheral Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateTotal() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += parseFloat(item.price); 
+            });
+            document.getElementById('total-price').innerText = total.toFixed(2);
+            return total;
+        }
+
+        function calculateChange() {
+            const total = calculateTotal();
+            const payment = parseFloat(document.getElementById('payment').value);
+
+            if (payment >= total) {
+                const change = payment - total;
+
+                localStorage.setItem('paymentInfo', JSON.stringify({
+                    cart: JSON.parse(localStorage.getItem('cart')),
+                    totalAmount: total,
+                    paymentAmount: payment,
+                    changeAmount: change
+                }));
+
+                alert('Payment successful! Your change is: $' + change.toFixed(2));
+                window.location.href = 'receipt.html';
+            } else {
+                alert('Insufficient payment! Please enter a valid payment amount.');
+            }
+        }
+
+        window.onload = calculateTotal;
+    </script>
+</body>
+
+</html>

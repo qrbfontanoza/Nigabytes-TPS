@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Peripheral Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('https://scontent.fmnl13-4.fna.fbcdn.net/v/t1.15752-9/467478046_1967284123792453_7983350166125698348_n.png?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGisWmUU-h30o-NCQVCdyumhatftK58682Fq1-0rnzrzcL0r4CflKuzaR4zg1YLUvC_-et2MJZPzMYN2KBLNUfd&_nc_ohc=uH1BJWc84_MQ7kNvgF5anzv&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&oh=03_Q7cD1QGOuM1Sw5eq8IdTuKhZx8Ra_Gd0W3UHLbC6U4PZAA1rDA&oe=677A6864');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .search-form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .search-form input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            width: 200px;
+        }
+
+        .search-form button {
+            padding: 10px;
+            border: none;
+            background-color: #b22222;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-form button:hover {
+            background-color: #a52a2a;
+        }
+
+        footer {
+            background: rgba(139, 0, 0, 0.8);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WELCOME TO NEGABYTES COMPUTER PERIPHERAL SHOP</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+                <li>
+                    <form action="#" method="get" class="search-form">
+                        <input type="text" placeholder="Search..." name="search" required>
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer>
+        <p>&copy; 2024 Computer Peripheral Shop. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

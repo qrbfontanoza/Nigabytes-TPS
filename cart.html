@@ -1,0 +1,95 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Computer Peripheral Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+	<style>
+        header {
+            background-color: #8B0000FF;
+            color: white;
+            padding: 1px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 15px;
+            padding: 10px 25px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #b22222;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+<body>
+    <header>
+        <h1>Your Cart</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="cart">
+        <h2>Cart Items</h2>
+        <div id="cart-items"></div>
+<section id="cart">
+    <div id="cart-items"></div>
+    <h3 id="total-amount">Total Amount: $0</h3>
+    <button onclick="window.location.href = 'checkout.html';">Proceed to Checkout</button>
+</section>
+
+<script>
+    function loadCart() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsDiv = document.getElementById('cart-items');
+        const totalAmountEl = document.getElementById('total-amount');
+        cartItemsDiv.innerHTML = '';
+
+        let totalAmount = 0;
+
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p>Your cart is empty!</p>';
+        } else {
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `<h3>${item.name}</h3><p>Price: $${item.price}</p>`;
+                cartItemsDiv.appendChild(cartItemDiv);
+
+                totalAmount += item.price;
+            });
+        }
+
+        totalAmountEl.textContent = `Total Amount: $${totalAmount}`;
+    }
+
+    window.onload = loadCart;
+</script>
+   <footer class="footer">
+        <p>&copy; 2024 Nigabytes Computer Peripheral Shop. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
